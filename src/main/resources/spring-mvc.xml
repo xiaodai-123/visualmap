@@ -10,9 +10,11 @@
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
+    <!-- 扫描controller -->
+    <context:component-scan base-package="com.xiaodai.visual.map.controller" />
 
-    <!-- 自动扫描配置-->
-    <context:component-scan base-package="com.xiaodai.visual.map.controller"/>
+    <!-- Spring 来扫描指定包下的类，并注册被@Component，@Controller，@Service，@Repository等注解标记的组件 -->
+    <mvc:annotation-driven />
 
     <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -32,7 +34,5 @@
     <!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL-->
     <mvc:default-servlet-handler/>
     <mvc:resources mapping="/static/**" location="/static/"/>
-
-
 
 </beans>
